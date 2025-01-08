@@ -11,7 +11,7 @@ export function getProjectsData() {
   const fileNames = fs.readdirSync(projectDirectory);
   const allProjectsData: Project[] = fileNames.map((fileName) => {
     // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, "");
+    const slug = fileName.replace(/\.md$/, "");
 
     // Read markdown file as string
     const fullPath = path.join(projectDirectory, fileName);
@@ -22,7 +22,7 @@ export function getProjectsData() {
     const data = matterResult.data;
     // Combine the data with the id
     return {
-      id,
+      slug,
       title: data.title,
       description: data.description,
       cover: data.cover,
@@ -44,7 +44,10 @@ export async function getProjectBySlug(slug: string) {
 
   return {
     slug,
-    ...data,
+    title: data.title,
+    description: data.description,
+    cover: data.cover,
+    date: data.date,
     contentHtml,
     content,
   };
