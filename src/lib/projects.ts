@@ -3,12 +3,13 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import { Project } from "@/app/types";
 
 const projectDirectory = path.join(process.cwd(), "/src/content/projects");
 
 export function getProjectsData() {
   const fileNames = fs.readdirSync(projectDirectory);
-  const allProjectsData = fileNames.map((fileName) => {
+  const allProjectsData: Project[] = fileNames.map((fileName) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, "");
 
@@ -18,11 +19,15 @@ export function getProjectsData() {
 
     // Use gray-matter to parse the metadata section
     const matterResult = matter(fileContents);
-
+    const data = matterResult.data;
     // Combine the data with the id
     return {
       id,
-      ...matterResult.data,
+      title: data.title,
+      description: data.description,
+      cover: data.cover,
+      date: data.date,
+      ...data,
     };
   });
   return allProjectsData;
