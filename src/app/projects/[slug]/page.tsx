@@ -2,6 +2,7 @@ import { getProjectBySlug, getProjectsData } from "@/lib/projects";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import { Project } from "@/app/types";
+import Image from "next/image";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -20,16 +21,31 @@ export default async function Page({ params }: PageProps) {
     return notFound();
   }
 
-  const { title, date, description, content }: ProjectContent = project;
+  const { title, date, cover, description, content }: ProjectContent = project;
 
   return (
     <div className="wrapper py-12">
-      <div className="mb-8">
-        <h1 className="heading-1">{title}</h1>
-        <p className="body-text">{description}</p>
-        <p>{date}</p>
+      <div className="mx-auto max-w-3xl">
+        <div className="mb-8">
+          <h1 className="heading-1 mb-4">{title}</h1>
+          <p className="body-text mb-2">{description}</p>
+          <p className="text-gray-600">專案時間：{date}</p>
+          <div className="relative my-8">
+            <Image
+              src={cover}
+              alt={title}
+              width={200}
+              height={200}
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
+              objectFit={"contain"}
+            />
+          </div>
+        </div>
+        <Markdown className="prose">{content}</Markdown>
       </div>
-      <Markdown>{content}</Markdown>
     </div>
   );
 }
