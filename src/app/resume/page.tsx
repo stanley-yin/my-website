@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import CustomBreadcrumb from "@/app/components/CustomBreadcrumb";
+import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 
 const Page = () => {
   const crumbs = [

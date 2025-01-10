@@ -1,8 +1,8 @@
 import React from "react";
-import ImageCard from "@/app/components/ImageCard";
+import ImageCard from "@/components/ImageCard";
 import Link from "next/link";
 import { getProjectsData } from "@/lib/projects";
-import CustomBreadcrumb from "@/app/components/CustomBreadcrumb";
+import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 
 const Page = () => {
   const crumbs = [
