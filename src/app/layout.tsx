@@ -1,7 +1,7 @@
 "use client";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Head from "@/components/Head";
+import Seo from "@/components/Seo";
 
 export default function RootLayout({
   children,
@@ -10,7 +10,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head />
+      <Seo />
       <body>
         <Navbar />
         <div className="pt-16">{children}</div>

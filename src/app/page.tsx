@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Head from "next/head";
 import { FaGithub } from "react-icons/fa6";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -21,7 +20,7 @@ export default function Home() {
           />
         </div>
         <div className="mx-auto max-w-2xl text-center">
-          <h1 className="text-6xl font-bold">Hi I'm Stanley</h1>
+          <h1 className="text-6xl font-bold">{`Hi I'm Stanley`}</h1>
           <p className="my-4 text-left text-lg">
             擁有近 3 年網站及系統開發經驗，擅長使用 React、Rails
             全端開發，具備多品牌網站架設與效能優化實務經驗。
