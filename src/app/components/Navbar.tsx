@@ -4,13 +4,14 @@ import { useState } from "react";
 const MenuItems = () => {
   const menuList = [
     {
-      label: "About",
-      link: "about",
+      label: "Resume",
+      link: "resume",
     },
-    {
-      label: "Posts",
-      link: "posts",
-    },
+    // todo: add posts data
+    // {
+    //   label: "Posts",
+    //   link: "posts",
+    // },
     {
       label: "Projects",
       link: "projects",
