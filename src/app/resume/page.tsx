@@ -1,9 +1,15 @@
 import React from "react";
 import Image from "next/image";
+import CustomBreadcrumb from "@/app/components/CustomBreadcrumb";
 
 const Page = () => {
+  const crumbs = [
+    { title: "home", path: "/" },
+    { title: "resume", path: "/resume" },
+  ];
   return (
     <div className="wrapper py-6 sm:py-12">
+      <CustomBreadcrumb crumbs={crumbs} />
       <h1 className="heading-1">Resume</h1>
       <div className="relative mx-auto h-64 max-w-3xl">
         <Image
