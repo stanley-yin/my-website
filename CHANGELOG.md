@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/stanley-yin/my-website/compare/v0.1.2...v0.1.3) (2025-01-10)
+
+
+### Features
+
+* install shadcn ui and add Breadcrumbs component ([8fc5829](https://github.com/stanley-yin/my-website/commit/8fc5829fc734e4c5a1e2010b086e0fe394971bea))
+
 ### 0.1.2 (2025-01-10)
 
 
