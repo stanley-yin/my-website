@@ -26,7 +26,7 @@ const ImageCard = ({
           className="default-transition hover:scale-105"
         />
       </div>
-      <p className="heading-2">{title}</p>
+      <p className="heading-3">{title}</p>
       <p className="body-text-small text-gray-500">{createdAt}</p>
       <p className="body-text mt-2 line-clamp-3 hover:underline">
         {description}
