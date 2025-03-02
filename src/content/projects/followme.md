@@ -5,7 +5,7 @@ description: '致力為複雜的法律問題提供專業且易懂的視覺化處
 cover: "/images/followme.png"
 ---
 ## Demo
-[https://followme.law/](https://followme.law/)
+https://followme.law/
 
 ## 系統架構
 1. **前端**：Gatsby、TypeScript、Tailwind CSS、GraphQL
