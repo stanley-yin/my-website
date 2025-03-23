@@ -19,12 +19,12 @@ type CrumbsProps = {
 
 const CustomBreadcrumb = ({ crumbs }: CrumbsProps) => {
   const crumbItems = crumbs.map((item, index) => (
-    <>
-      <BreadcrumbItem key={index}>
+    <div key={index}>
+      <BreadcrumbItem>
         <BreadcrumbLink href={item.path}> {item.title}</BreadcrumbLink>
       </BreadcrumbItem>
       <BreadcrumbSeparator className="last:hidden" />
-    </>
+    </div>
   ));
   return (
     <Breadcrumb>
