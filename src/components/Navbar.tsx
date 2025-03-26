@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import { IoPersonCircleOutline } from "react-icons/io5";
 
 const MenuItems = () => {
   const menuList = [
@@ -7,14 +8,13 @@ const MenuItems = () => {
       label: "Resume",
       link: "resume",
     },
-    // todo: add posts data
-    // {
-    //   label: "Posts",
-    //   link: "posts",
-    // },
     {
       label: "Projects",
       link: "projects",
+    },
+    {
+      label: "Posts",
+      link: "posts",
     },
   ];
 
@@ -39,13 +39,22 @@ export default function Navbar() {
 
   return (
     <div className="fixed z-20 w-full border bg-white">
-      <div className="wrapper flex h-16 items-center">
-        <Link href="/" className="mr-16 text-2xl font-bold">
-          Stanley Yin
-        </Link>
-        <div className="hidden gap-12 md:flex">
-          <MenuItems />
+      <div className="wrapper flex h-16 items-center justify-between">
+        <div className="flex items-center">
+          <Link href="/" className="mr-16 text-2xl font-bold">
+            Stanley Yin
+          </Link>
+          <div className="hidden gap-12 md:flex">
+            <MenuItems />
+          </div>
         </div>
+        <Link
+          href={"/studio"}
+          target="_blank"
+          className="hidden sm:inline-block"
+        >
+          <IoPersonCircleOutline size={28} />
+        </Link>
         <div className="navbar ml-auto md:hidden">
           <div className="navbar-toggle" onClick={toggleNavbar}>
             <span className="bar"></span>

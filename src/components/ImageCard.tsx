@@ -5,14 +5,14 @@ type ImageCardProps = {
   img: string;
   imgAlt: string;
   title: string;
-  description: string;
+  description?: string;
   createdAt: string;
 };
 const ImageCard = ({
   img,
   imgAlt,
   title,
-  description,
+  description = "",
   createdAt,
 }: ImageCardProps) => {
   return (
