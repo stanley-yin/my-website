@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoPersonCircleOutline } from "react-icons/io5";
+import { usePathname } from "next/navigation";
 
 const MenuItems = () => {
   const menuList = [
@@ -32,10 +33,27 @@ const MenuItems = () => {
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   function toggleNavbar() {
-    const navbarToggle = document.querySelector(".navbar-toggle");
-    navbarToggle?.classList.toggle("open");
-    setMenuOpen(!menuOpen);
+    setMenuOpen((prev) => !prev);
   }
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    // 當手機、平板版點擊不同頁面改變路徑時，關閉 Navbar
+    setMenuOpen(false);
+  }, [pathname]);
+
+  // 使用 useEffect 來同步 menuOpen 狀態和 DOM
+  useEffect(() => {
+    const navbarToggle = document.querySelector(".navbar-toggle");
+    if (navbarToggle) {
+      if (menuOpen) {
+        navbarToggle.classList.add("open");
+      } else {
+        navbarToggle.classList.remove("open");
+      }
+    }
+  }, [menuOpen]);
 
   return (
     <div className="fixed z-20 w-full border bg-white">
