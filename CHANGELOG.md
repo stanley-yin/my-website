@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/stanley-yin/my-website/compare/v0.1.3...v0.1.4) (2025-03-27)
+
+
+### Features
+
+* 完成 all posts, single posts 頁面 ([997fc34](https://github.com/stanley-yin/my-website/commit/997fc34d12e923accb05e5150cee912502c8fe25))
+* add Head component and favicon ([9469922](https://github.com/stanley-yin/my-website/commit/94699227e977a14d58d39c634be8b2c29fe54053))
+* add post query ([9a1028d](https://github.com/stanley-yin/my-website/commit/9a1028d2831165f1a75976ed0a8fc4914a0f74a3))
+* install @next/third-parties and set gtm tag ([969d443](https://github.com/stanley-yin/my-website/commit/969d44319f3a47d5c6d94c0f1d1eca8f9dd68079))
+* install sanity studio and set blog schemas ([4213b05](https://github.com/stanley-yin/my-website/commit/4213b0504214cc8812f33446712e587d340888b2))
+* resume image add shadow ([45f48eb](https://github.com/stanley-yin/my-website/commit/45f48ebf1dd157e81ca34a6fb78d3fd852b428c9))
+
+
+### Bug Fixes
+
+* fix BreadCrumb key error ([ca8440c](https://github.com/stanley-yin/my-website/commit/ca8440c17c35276abab5920d1faef6e80057909e))
+* fix link ([2267246](https://github.com/stanley-yin/my-website/commit/2267246c876b6cd6012087390f28add0343c9bbf))
+* fix lint error ([160d6c8](https://github.com/stanley-yin/my-website/commit/160d6c830f338c762725030d50384e41fce4189c))
+
 ### [0.1.3](https://github.com/stanley-yin/my-website/compare/v0.1.2...v0.1.3) (2025-01-10)
 
 
