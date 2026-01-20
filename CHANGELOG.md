@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/stanley-yin/my-website/compare/v0.1.4...v0.1.5) (2026-01-20)
+
+
+### Features
+
+* add linkedin link ([9895e19](https://github.com/stanley-yin/my-website/commit/9895e195719f5f0edc61c13ab2dfc2b959b22c49))
+* change projects cover image width and height ([724f836](https://github.com/stanley-yin/my-website/commit/724f836187cccc2c4e2ee1cc45fecf7cbede2ff3))
+* change website favicon ([db56f63](https://github.com/stanley-yin/my-website/commit/db56f6340ca17b5d756e27635ff757dd43338673))
+* remove resume section ([5a95d52](https://github.com/stanley-yin/my-website/commit/5a95d529f605fd0fd2836df9c44abc069201cd3d))
+* update readme and gitignore ([326f81a](https://github.com/stanley-yin/my-website/commit/326f81a9edfdfc6e07991de3d812f783af2da884))
+
+
+### Bug Fixes
+
+* navbar auto close when path change ([1fd9e50](https://github.com/stanley-yin/my-website/commit/1fd9e503b458ac0879f9b52191baa5c04dff3c55))
+
 ### [0.1.4](https://github.com/stanley-yin/my-website/compare/v0.1.3...v0.1.4) (2025-03-27)
 
 
