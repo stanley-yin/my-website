@@ -34,8 +34,8 @@ export default async function Page({ params }: PageProps) {
             <Image
               src={cover}
               alt={title}
-              width={200}
-              height={200}
+              width={700}
+              height={400}
               style={{
                 width: "100%",
                 height: "auto",
