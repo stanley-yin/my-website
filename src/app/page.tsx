@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Head from "next/head";
-import { FaGithub } from "react-icons/fa6";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
 export default function Home() {
   return (
@@ -20,18 +20,21 @@ export default function Home() {
           />
         </div>
         <div className="mx-auto max-w-2xl text-center">
-          <h1 className="text-6xl font-bold">{`Hi I'm Stanley`}</h1>
-          <p className="my-4 text-left text-lg">
-            擁有近 3 年網站及系統開發經驗，擅長使用 React、Rails
-            全端開發，具備多品牌網站架設與效能優化實務經驗。
-          </p>
-          <div className="flex justify-center gap-4">
+          <h1 className="text-6xl font-bold">{`Hi I'm Stanley Yin`}</h1>
+          <div className="mt-4 flex justify-center gap-4">
             <a
               href="https://github.com/stanley-yin"
               target="_blank"
               className="default-transition hover:text-gray-600"
             >
               <FaGithub size={50} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/stanley-yin-9987ba190/"
+              target="_blank"
+              className="default-transition hover:text-gray-600"
+            >
+              <FaLinkedin size={50} />
             </a>
           </div>
         </div>
