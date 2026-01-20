@@ -1,9 +1,14 @@
-"use client";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Seo from "@/components/Seo";
 import { GoogleTagManager } from "@next/third-parties/google";
 import React from "react";
+
+export const metadata = {
+  icons: {
+    icon: '/favicon.svg',
+  },
+}
 
 export default function RootLayout({
   children,
