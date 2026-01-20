@@ -6,10 +6,6 @@ import { usePathname } from "next/navigation";
 const MenuItems = () => {
   const menuList = [
     {
-      label: "Resume",
-      link: "resume",
-    },
-    {
       label: "Projects",
       link: "projects",
     },
