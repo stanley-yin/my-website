@@ -44,12 +44,14 @@ export default async function Page({ params }: PageProps) {
               <p>{new Date(publishedAt).toLocaleDateString()}</p>
             </div>
           </div>
-          <div className="relative my-8 h-[400px] w-full overflow-hidden rounded-lg">
+          <div className="relative my-8 h-[400px] w-full overflow-hidden rounded-lg bg-gray-100">
             <Image
               src={mainImage.image}
               alt="post-cover"
               fill
               className="object-cover"
+              placeholder={mainImage.lqip ? "blur" : "empty"}
+              blurDataURL={mainImage.lqip}
             />
           </div>
         </div>

@@ -9,6 +9,7 @@ export async function getAllProjects() {
       slug,
       description,
       "cover": cover.asset->url,
+      "coverLqip": cover.asset->metadata.lqip,
       date,
     }`,
   );
@@ -22,6 +23,7 @@ export async function getProjectBySlug(slug: string) {
       slug,
       description,
       "cover": cover.asset->url,
+      "coverLqip": cover.asset->metadata.lqip,
       date,
       body[] {
         ...,
@@ -42,7 +44,7 @@ export async function getAllPosts() {
       title,
       slug,
       publishedAt,
-      mainImage { alt, "image": asset->url },
+      mainImage { alt, "image": asset->url, "lqip": asset->metadata.lqip },
       "author": author-> {
         name,
         image { alt, "image": asset->url },
@@ -65,7 +67,7 @@ export async function getPostBySlug(slug: string) {
       title,
       slug,
       publishedAt,
-      mainImage { alt, "image": asset->url },
+      mainImage { alt, "image": asset->url, "lqip": asset->metadata.lqip },
       "author": author-> {
         name,
         image { alt, "image": asset->url },

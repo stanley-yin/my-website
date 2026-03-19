@@ -6,6 +6,7 @@ export interface Project {
   title: string;
   description: string;
   cover: string;
+  coverLqip?: string;
   date: string;
   priority?: number;
   body?: (PortableTextBlock | PortableTextImage)[];
@@ -42,6 +43,7 @@ export interface Post {
   mainImage: {
     alt: string;
     image: string;
+    lqip?: string;
   };
   author: {
     name: string;

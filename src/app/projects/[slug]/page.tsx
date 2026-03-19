@@ -17,7 +17,7 @@ export default async function Page({ params }: PageProps) {
     return notFound();
   }
 
-  const { title, date, cover, description, body } = project;
+  const { title, date, cover, coverLqip, description, body } = project;
 
   return (
     <div className="wrapper py-12">
@@ -33,17 +33,14 @@ export default async function Page({ params }: PageProps) {
           <h1 className="heading-1 mb-4">{title}</h1>
           <p className="body-text mb-2">{description}</p>
           <p className="text-gray-600">專案時間：{date}</p>
-          <div className="relative my-8">
+          <div className="relative my-8 aspect-video w-full bg-gray-100">
             <Image
               src={cover}
               alt={title}
-              width={700}
-              height={400}
-              style={{
-                width: "100%",
-                height: "auto",
-              }}
-              objectFit={"contain"}
+              fill
+              className="object-contain"
+              placeholder={coverLqip ? "blur" : "empty"}
+              blurDataURL={coverLqip}
             />
           </div>
         </div>

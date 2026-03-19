@@ -22,6 +22,7 @@ const Page = async () => {
       <ImageCard
         img={project.cover}
         imgAlt={project.title}
+        lqip={project.coverLqip}
         title={project.title}
         description={project.description}
         createdAt={project.date}

@@ -4,6 +4,7 @@ import Image from "next/image";
 type ImageCardProps = {
   img: string;
   imgAlt: string;
+  lqip?: string;
   title: string;
   description?: string;
   createdAt: string;
@@ -11,19 +12,21 @@ type ImageCardProps = {
 const ImageCard = ({
   img,
   imgAlt,
+  lqip,
   title,
   description = "",
   createdAt,
 }: ImageCardProps) => {
   return (
     <div className="group relative max-w-lg">
-      <div className="relative mb-4 h-64 w-full overflow-hidden rounded-lg">
+      <div className="relative mb-4 h-64 w-full overflow-hidden rounded-lg bg-gray-100">
         <Image
           src={img}
           alt={imgAlt}
-          fill={true}
-          objectFit={"cover"}
-          className="default-transition hover:scale-105"
+          fill
+          className="object-cover default-transition hover:scale-105"
+          placeholder={lqip ? "blur" : "empty"}
+          blurDataURL={lqip}
         />
       </div>
       <p className="heading-3">{title}</p>

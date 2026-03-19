@@ -23,6 +23,7 @@ const Page = async () => {
         <ImageCard
           img={post.mainImage.image}
           imgAlt={"post-cover"}
+          lqip={post.mainImage.lqip}
           title={post.title}
           createdAt={new Date(post.publishedAt).toLocaleDateString()}
         />
