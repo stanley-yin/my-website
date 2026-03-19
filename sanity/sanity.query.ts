@@ -3,7 +3,7 @@ import client from "./sanity.client";
 
 export async function getAllProjects() {
   return client.fetch(
-    groq`*[_type == "project"] | order(_createdAt desc) {
+    groq`*[_type == "project"] | order(priority asc) {
       _id,
       title,
       slug,

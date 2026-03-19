@@ -7,6 +7,7 @@ export interface Project {
   description: string;
   cover: string;
   date: string;
+  priority?: number;
   body?: (PortableTextBlock | PortableTextImage)[];
 }
 

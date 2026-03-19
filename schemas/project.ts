@@ -45,6 +45,12 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "priority",
+      title: "Priority",
+      type: "number",
+      description: "數字越小越優先顯示",
+    }),
+    defineField({
       name: "body",
       title: "Body",
       type: "blockContent",
