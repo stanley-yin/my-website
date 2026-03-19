@@ -1,9 +1,13 @@
 export interface Project {
-  slug: string;
+  _id: string;
+  slug: {
+    current: string;
+  };
   title: string;
   description: string;
   cover: string;
   date: string;
+  body?: (PortableTextBlock | PortableTextImage)[];
 }
 
 interface PortableTextImage {

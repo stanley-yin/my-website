@@ -1,20 +1,23 @@
 import React from "react";
 import ImageCard from "@/components/ImageCard";
 import Link from "next/link";
-import { getProjectsData } from "@/lib/projects";
+import { getAllProjects } from "../../../sanity/sanity.query";
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
+import { Project } from "@/app/types";
 
-const Page = () => {
+const Page = async () => {
   const crumbs = [
     { title: "home", path: "/" },
     { title: "projects", path: "/projects" },
   ];
-  const data = getProjectsData();
-  const projectContents = data.map((project, index) => (
+
+  const projects = (await getAllProjects()) as Project[];
+
+  const projectContents = projects.map((project) => (
     <Link
-      href={`/projects/${project.slug}`}
+      href={`/projects/${project.slug.current}`}
       className="inline-block"
-      key={index}
+      key={project._id}
     >
       <ImageCard
         img={project.cover}
@@ -25,6 +28,7 @@ const Page = () => {
       />
     </Link>
   ));
+
   return (
     <div className="wrapper py-6 sm:py-12">
       <CustomBreadcrumb crumbs={crumbs} />

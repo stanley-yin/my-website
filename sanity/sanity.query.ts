@@ -1,6 +1,40 @@
 import { groq } from "next-sanity";
 import client from "./sanity.client";
 
+export async function getAllProjects() {
+  return client.fetch(
+    groq`*[_type == "project"] | order(_createdAt desc) {
+      _id,
+      title,
+      slug,
+      description,
+      "cover": cover.asset->url,
+      date,
+    }`,
+  );
+}
+
+export async function getProjectBySlug(slug: string) {
+  return client.fetch(
+    groq`*[_type == "project" && slug.current == $slug][0]{
+      _id,
+      title,
+      slug,
+      description,
+      "cover": cover.asset->url,
+      date,
+      body[] {
+        ...,
+        _type == "image" => {
+          "url": asset->url,
+          alt
+        }
+      }
+    }`,
+    { slug },
+  );
+}
+
 export async function getAllPosts() {
   return client.fetch(
     groq`*[_type == "post"]{

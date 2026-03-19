@@ -1,30 +1,33 @@
-import { getProjectBySlug, getProjectsData } from "@/lib/projects";
+import { getAllProjects, getProjectBySlug } from "../../../../sanity/sanity.query";
 import { notFound } from "next/navigation";
-import Markdown from "react-markdown";
-import { Project } from "@/app/types";
 import Image from "next/image";
+import { Project } from "@/app/types";
+import CustomBreadcrumb from "@/components/CustomBreadcrumb";
+import { PortableText } from "@portabletext/react";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-interface ProjectContent extends Project {
-  contentHtml: string;
-  content: string;
-  slug: string;
-}
-
 export default async function Page({ params }: PageProps) {
-  const slug = (await params).slug;
-  const project = await getProjectBySlug(slug);
+  const { slug } = await params;
+  const project = (await getProjectBySlug(slug)) as Project;
+
   if (!project) {
     return notFound();
   }
 
-  const { title, date, cover, description, content }: ProjectContent = project;
+  const { title, date, cover, description, body } = project;
 
   return (
     <div className="wrapper py-12">
+      <CustomBreadcrumb
+        crumbs={[
+          { title: "home", path: "/" },
+          { title: "projects", path: "/projects" },
+          { title: title, path: `/projects/${slug}` },
+        ]}
+      />
       <div className="mx-auto max-w-3xl">
         <div className="mb-8">
           <h1 className="heading-1 mb-4">{title}</h1>
@@ -44,7 +47,9 @@ export default async function Page({ params }: PageProps) {
             />
           </div>
         </div>
-        <Markdown className="prose">{content}</Markdown>
+        <div className="prose prose-lg">
+          <PortableText value={body ?? []} />
+        </div>
       </div>
     </div>
   );
@@ -52,10 +57,8 @@ export default async function Page({ params }: PageProps) {
 
 // 在 build time 時會先 render 這些頁面
 export async function generateStaticParams() {
-  const projectData = getProjectsData();
-  return projectData.map((project) => {
-    return {
-      slug: project.slug,
-    };
-  });
+  const projects = (await getAllProjects()) as Project[];
+  return projects.map((project) => ({
+    slug: project.slug.current,
+  }));
 }
