@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Project } from "@/app/types";
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import { PortableText } from "@portabletext/react";
+import CodeBlock from "@/components/CodeBlock";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -45,7 +46,16 @@ export default async function Page({ params }: PageProps) {
           </div>
         </div>
         <div className="prose prose-lg">
-          <PortableText value={body ?? []} />
+          <PortableText
+            value={body ?? []}
+            components={{
+              types: {
+                code: ({ value }) => (
+                  <CodeBlock code={value.code} language={value.language} />
+                ),
+              },
+            }}
+          />
         </div>
       </div>
     </div>

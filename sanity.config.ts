@@ -1,5 +1,6 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
+import { codeInput } from "@sanity/code-input";
 import { schemaTypes } from "./schemas/index";
 
 const config = defineConfig({
@@ -8,7 +9,7 @@ const config = defineConfig({
   dataset: "production",
   apiVersion: "2023-06-18",
   basePath: "/studio",
-  plugins: [structureTool()],
+  plugins: [structureTool(), codeInput()],
   schema: { types: schemaTypes },
 });
 
