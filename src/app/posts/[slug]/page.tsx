@@ -64,6 +64,40 @@ export default async function Page({ params }: PageProps) {
                 code: ({ value }) => (
                   <CodeBlock code={value.code} language={value.language} />
                 ),
+                table: ({ value }) => (
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse text-sm">
+                      <tbody>
+                        {value.rows?.map(
+                          (
+                            row: { _key: string; cells: string[] },
+                            rowIndex: number,
+                          ) => (
+                            <tr key={row._key ?? rowIndex}>
+                              {row.cells?.map((cell: string, cellIndex: number) =>
+                                rowIndex === 0 ? (
+                                  <th
+                                    key={cellIndex}
+                                    className="border border-gray-300 bg-gray-100 px-4 py-2 font-semibold"
+                                  >
+                                    {cell}
+                                  </th>
+                                ) : (
+                                  <td
+                                    key={cellIndex}
+                                    className="border border-gray-300 px-4 py-2"
+                                  >
+                                    {cell}
+                                  </td>
+                                ),
+                              )}
+                            </tr>
+                          ),
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                ),
               },
             }}
           />
